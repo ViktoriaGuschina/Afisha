@@ -42,9 +42,13 @@ public class FilmManager {
 
     public String[] findLast() {
         int size = size();
-        String[] last = new String[limit];
+        int temp = this.limit;
+        if (size < limit) {
+            temp = size;
+        }
+        String[] last = new String[temp];
         int l = 0;
-        for (int i = size - 1; i > size - limit - 1; i--) {
+        for (int i = size - 1; i > size - temp - 1; i--) {
             last[l] = films[i];
             l++;
         }
